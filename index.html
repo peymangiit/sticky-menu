@@ -23,7 +23,7 @@
         .container{
             /* background-color: rgb(241, 193, 193); */
             width: 90%;
-            height: 1900px;
+           
 
         }
         .hero{
@@ -57,10 +57,16 @@
             /* width: 70px; */
         }
 
-        .infograghy{
+        .division{
              background-color: var(--grey);
             height: 500px;
              margin-top: 8px;
+        }
+        a{
+            text-decoration: none;
+        }
+        .active{
+            background-color: rgb(245, 204, 158);
         }
     </style>
 </head>
@@ -69,13 +75,53 @@
         <div class="hero"></div>
         <div class="sticky">
           
-            <div class="menu"> معرفی </div>
-            <div class="menu"> بررسی تخصصی </div>
-            <div class="menu"> مشخصات </div>
-            <div class="menu"> دیدگاه ها </div>
+            <div class="menu"><a href="#introduction"> معرفی </a></div>
+            <div class="menu"><a href="#review"> بررسی تخصصی </a></div>
+            <div class="menu"><a href="#details"> مشخصات </a></div>
+            <div class="menu"><a href="#views"> دیدگاه ها </a></div>
            
         </div>
-        <div class="infograghy"></div>
+
+        <div class="division" id="introduction"></div>
+        <div class="division" id="review"></div>
+        <div class="division" id="details"></div>
+        <div class="division" id="views"></div>
     </div>
+
+
+    <script>
+        const divs = document.querySelectorAll(".division");
+        // console.log(divs);
+        const menus = document.querySelectorAll(".menu");
+        // console.log(menus);
+        function activeLink(li) {
+            menus.forEach((item) => item.classList.remove('active'));
+            li.classList.add('active');
+        }
+        menus.forEach((item) =>
+            item.addEventListener('click', function(){
+                activeLink(this);
+            }));
+
+
+        window.onscroll = () => {
+            divs.forEach(div =>{
+                let top = window.scrollY;
+                let offset = div.offsetTop - 200;
+                let height = div.offsetHeight;
+                let id = div.getAttribute('id');
+
+                console.log(offset);
+                // console.log(top +" - "+ offset +" - "+ height +" - "+ id)
+
+                if (top >= offset && top < offset + height) {
+                    const target = document.querySelector(`[href='#${id}']`).parentElement;
+                    activeLink(target);
+                }
+            })
+        }
+
+
+    </script>
 </body>
 </html>
