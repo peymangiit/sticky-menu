@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sticky div</title>
+
+    <style>
+        :root{
+            --grey : rgba(168, 168, 168,0.4);
+        }
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            /* outline: 1px solid red; */
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            width: 100vw;
+        }
+        .container{
+            /* background-color: rgb(241, 193, 193); */
+            width: 75%;
+            height: 1900px;
+
+        }
+        .hero{
+            background-color: var(--grey);
+            height: 500px;
+             margin-top: 8px;
+        }
+        .sticky{
+           
+            position: sticky;
+
+            display: flex;
+            flex-direction: row-reverse;
+
+            justify-content: flex-start;
+            align-items: center;
+            top: 5px;
+            height: 60px;
+            width: 100%;
+            border-bottom: 1px solid gray;
+            background-color: rgb(240, 240, 248);
+            margin-top: 8px;
+            padding: 0  7px  0  7px;
+        }
+       
+        .menu{
+            direction: rtl;
+            padding: 0  7px  0  7px;
+            /* width: 70px; */
+        }
+
+        .infograghy{
+             background-color: var(--grey);
+            height: 500px;
+             margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero"></div>
+        <div class="sticky">
+          
+            <div class="menu"> معرفی </div>
+            <div class="menu"> بررسی تخصصی </div>
+            <div class="menu"> مشخصات </div>
+            <div class="menu"> دیدگاه ها </div>
+           
+        </div>
+        <div class="infograghy"></div>
+    </div>
+</body>
+</html>
